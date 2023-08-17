@@ -47,6 +47,6 @@ function createXML(){
   fi
 }
 
-cat /opt/SecLists/rockyou.txt | while read password; do 
+cat /opt/share/wordlists/rockyou.txt | while read password; do 
   createXML $password $user $url
 done
