@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 function Ctrl_c(){
-  echo -e "[!] Saliendo del script...\n"
+  echo -e "\n[!] Se ha finalizado el script\n"
   exit 1
 }
 
@@ -9,8 +9,8 @@ function Ctrl_c(){
 trap Ctrl_c INT
 
 if [ $# -ne 2 ]; then
-  echo -e "No se han proporcionado los argumentos necesarios...\n"
-  echo "Uso: $0 usuario URL"
+  echo -e "\n[!] No se han proporcionado los argumentos necesarios...\n"
+  echo "\n[+] Uso: $0 usuario URL\n"
   exit 1
 fi
 
@@ -42,7 +42,7 @@ function createXML(){
 
 
   if [ ! "$(echo $response | grep 'Incorrect username or password.')" ]; then
-    echo -e "La contraseña para el usuario \e[35m$user\e[0m es: \e[35m$password\e[0m"
+    echo -e "\n[+] La contraseña para el usuario \e[35m$user\e[0m es: \e[35m$password\e[0m\n"
     exit 0 
   fi
 }
